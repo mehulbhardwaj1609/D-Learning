@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="google-signin-client_id" content="561095451699-hgjilog87lh6u7epuukk5941pvpisn39.apps.googleusercontent.com">
+	<title>D-Learning</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/my-login.css">
+</head>
+
+<body class="my-login-page">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<br><br><br><br><br><br><br><br><br><br>
+					<div class="brand">
+						<img src="img/logo.jpg" alt="logo">
+					</div>
+					<div id="my-signin2"></div>
+					<br><br><br><br><br><br><br><br><br><br><br>
+					<div class="footer">
+						Copyright &copy; 2021 &mdash; DbbuGers 
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		function onSuccess(googleUser) {
+			 // Useful data for your client-side scripts:
+			 var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        var name = profile.getName();
+        console.log("Image URL: " + profile.getImageUrl());
+        var email =profile.getEmail();
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+		window.location.href = "http://localhost:8080/Teacher/tlogin.php?name="+name+"&email="+email;
+		}
+		function onFailure(error) {
+		  console.log(error);
+		}
+		function renderButton() {
+		  gapi.signin2.render('my-signin2', {
+			'scope': 'profile email',
+			'width': 400,
+			'height': 50,
+			'longtitle': true,
+			'theme': 'dark',
+			'onsuccess': onSuccess,
+			'onfailure': onFailure
+		  });
+		}
+	  </script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>

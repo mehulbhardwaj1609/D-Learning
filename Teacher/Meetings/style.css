@@ -1,0 +1,45 @@
+
+
+#jitsi-container{
+    margin-left: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#sendLink
+{
+   margin-right: 50px;
+   margin-top: 50px;
+   margin-left:200px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: large;
+
+}
+.container{
+    border: 2px solid black;
+}
+
+.child{
+    width:50%;
+    float:left;
+}
+
+#sendLink p{
+    padding-top: 265px;
+    padding-left:auto;
+}
+
+/* button{
+    margin-left: 20px;
+} */
+
+#sendLink button{
+  margin-left: 130px;;
+}
+
+#sendLink p{
+    font-size: 33px;
+}
+textarea{
+    resize: none;
+}
